@@ -12,11 +12,14 @@
       %div.col-xs-4
         = render :partial => "/partials/showpreviousreviews"
     %div{:class => "row", :style => "text-align: center"}
+      
       %div.col-xs-4
       -# For adding first admin
-      -# %div.col-xs-4
-      -#   -if current_user
-      -#     = link_to 'Become Admin', add_admin_path(id: current_user.id)
+      %div.col-xs-4
+        -if current_user
+          -if current_user.email == "ma.tamuexecutive@gmail.com" or current_user.email == "cmythman@gmail.com"
+            -if not current_user.is_admin
+              = link_to 'Become Admin', add_admin_path(id: current_user.id)
       %div.col-xs-4
 
 %hr
