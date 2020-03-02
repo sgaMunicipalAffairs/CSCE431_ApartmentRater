@@ -60,7 +60,8 @@ class UsersController < ApplicationController
   end
 
   def verifyInput params
-    if not (params["email"].include? "@tamu.edu" or params["email"].include? "@blinn.edu")
+    #ADD SGA EMAIL
+    if not (params["email"].include? "@tamu.edu" or params["email"].include? "@blinn.edu" or params["email"] == "ma.tamuexecutive@gmail.com" or params["email"] == "cmythman@gmail.com")
       flash[:notice] = "Please use a Tamu or Blinn email."
       return false
     elsif params["password"] != params["vPassword"]
